@@ -1,0 +1,44 @@
+import os
+from models.common import *
+from yacs.config import CfgNode as CN
+
+
+_C = CN()
+
+# parameters
+_C.PARAMETERS = CN()
+_C.PARAMETERS.PADDING = True
+_C.PARAMETERS.CHS_IN = 1
+# _C.PARAMETERS.CHS_OUT = 1
+_C.PARAMETERS.NUM_SPK = 2
+
+
+# Encoder
+_C.ENCODER = CN()
+_C.ENCODER.K_INTER = 33
+_C.ENCODER.K_INTRA = 7
+_C.ENCODER.S_INTER = 16
+_C.ENCODER.S_INTRA = 4
+_C.ENCODER.C_INTER = 256
+_C.ENCODER.C_INTRA = 64
+_C.ENCODER.NORM = True
+
+# Model setting
+# Separation setting
+_C.SEPARATION = CN()
+_C.SEPARATION.BACKBONE = 'TCN'    # options: CSP-Net, TCN
+_C.SEPARATION.N = 4
+_C.SEPARATION.X = [2, 4, 8, 12]
+_C.SEPARATION.K_TRANS = 7
+_C.SEPARATION.SKIP = False
+_C.SEPARATION.C_INTER_MID = 256
+_C.SEPARATION.C_INTRA_MID = 32
+
+# Decoder
+_C.DECODER = CN()
+
+
+
+
+
+
